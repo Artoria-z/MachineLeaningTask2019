@@ -227,6 +227,6 @@ score1 = pd.read_csv('Output1.csv')['1']
 score2 = pd.read_csv('Output2.csv')['1']
 score = 0.5 * (score1 + score2)
 output = pd.read_csv('sampleSubmission.csv')
-output['Score'] = score
-output.to_csv('Submission.csv')   # 最终结果输出到Submission.csv中（若不存在将会被创建）
+output['Predicted'] = score
+output.to_csv('Submission.csv', columns=['Id', 'Predicted'], index=False)   # 最终结果输出到Submission.csv中（若不存在将会被创建）
 print('===End of output===')
