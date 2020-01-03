@@ -183,8 +183,8 @@ set_test = set_test.reshape(set_test.shape[0], 32, 32, 32, 1)
 
 nb_classes = 2
 dense_depth = 10  # Must be 3N+4
-dense_growthrate = 8
-batch_size = 512
+dense_growthrate = 12
+batch_size = 4
 early_stopping = EarlyStopping(monitor='val_loss', patience=150, verbose=1)
 saveBestModel = keras.callbacks.ModelCheckpoint('./lowest_validateloss.h5', monitor='val_loss', verbose=1,
                                                 save_best_only=True, mode='auto')
