@@ -185,7 +185,7 @@ nb_classes = 2
 dense_depth = 10  # Must be 3N+4
 dense_growthrate = 12
 batch_size = 4
-early_stopping = EarlyStopping(monitor='val_loss', patience=150, verbose=1)
+early_stopping = EarlyStopping(monitor='val_loss', patience=20, verbose=1)
 saveBestModel = keras.callbacks.ModelCheckpoint('./lowest_validateloss.h5', monitor='val_loss', verbose=1,
                                                 save_best_only=True, mode='auto')
 
@@ -195,7 +195,7 @@ model.compile(loss=categorical_crossentropy, optimizer=SGD(lr=0.001, decay=1e-5,
               metrics=['accuracy'])
 model.summary()
 
-model.fit(set_train, label_train, batch_size=batch_size, epochs=1500,
+model.fit(set_train, label_train, batch_size=batch_size, epochs=150,
           validation_data=(set_test, label_test), verbose=2,
           shuffle=False, callbacks=[early_stopping, saveBestModel])
 loss, accuracy = model.evaluate(set_train, label_train)
