@@ -79,7 +79,7 @@ def load_traindata():
 
 def load_testdata():
     x_return = np.zeros((117, size, size, size))
-    x_name = pd.read_csv("sampleSubmission.csv")['name'] # 此处[' ']内填写的是sampleSubmission.csv内的第一列表头
+    x_name = pd.read_csv("sampleSubmission.csv")['Id'] # 此处[' ']内填写的是sampleSubmission.csv内的第一列表头
     filenum = 0
     for i in range(117):
         x_file_temp = os.path.join(x_test_path, x_name[i]+'.npz')
